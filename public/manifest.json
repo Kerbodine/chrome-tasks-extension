@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "FocalTimer",
   "version": "1.0.0",
-  "description": "Task management home screen app",
+  "description": "Simple new tab widgets",
   "author": "Michael Tong",
   "icons": {
     "16": "icons/16.ico",
