@@ -1,5 +1,5 @@
-import { createContext, useContext, useState } from "react";
-import { defaultSettings } from "../config/default";
+import { createContext, useContext, useState, useEffect } from "react";
+import { defaultSettings, defaultTasks } from "../config/default";
 
 const SettingsContext = createContext();
 
@@ -8,9 +8,14 @@ export function useSettings() {
 }
 
 export function SettingsProvider({ children }) {
-  const [tasks, setTasks] = useState(
-    JSON.parse(localStorage.getItem("tasks")) || defaultSettings
-  );
+  const getLocalTasks = () => {
+    if (localStorage.getItem("tasks") === null) {
+      localStorage.setItem("tasks", JSON.stringify(defaultTasks));
+    }
+    return JSON.parse(localStorage.getItem("tasks"));
+  };
+
+  const [tasks, setTasks] = useState(getLocalTasks);
 
   const getLocalStorage = () => {
     if (localStorage.getItem("settings") === null) {
@@ -21,9 +26,25 @@ export function SettingsProvider({ children }) {
 
   const [settings, setSettings] = useState(getLocalStorage);
 
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
+  useEffect(() => {
+    localStorage.setItem("settings", JSON.stringify(settings));
+  }, [settings]);
+
+  const toggleTheme = () => {
+    setSettings({
+      ...settings,
+      darkMode: !settings.darkMode,
+    });
+  };
+
   const value = {
     settings,
     setSettings,
+    toggleTheme,
     tasks,
     setTasks,
   };

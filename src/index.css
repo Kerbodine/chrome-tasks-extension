@@ -1,16 +1,30 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  html {
-    font-family: "Inter", sans-serif;
-    @apply transition-colors;
-  }
-
   input {
     @apply outline-none;
   }
+}
+
+/* width */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-200 rounded-full hover:bg-gray-300;
+}
+
+.dark-scroll::-webkit-scrollbar-track {
+  @apply bg-gray-800 rounded-full;
+}
+
+.dark-scroll::-webkit-scrollbar-thumb {
+  @apply bg-gray-700 rounded-full hover:bg-gray-600;
 }

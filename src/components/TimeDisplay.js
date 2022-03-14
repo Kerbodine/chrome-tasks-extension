@@ -24,7 +24,11 @@ const TimeDisplay = () => {
     setInterval(updateTime, 1000);
   }, []);
 
-  return <div className="font-medium text-6xl dark:text-white">{time}</div>;
+  return (
+    <div className="font-medium text-6xl dark:text-white transition-colors">
+      {time}
+    </div>
+  );
 };
 
 export default TimeDisplay;
