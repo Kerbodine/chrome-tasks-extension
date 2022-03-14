@@ -1,6 +1,5 @@
 import { createContext, useContext, useState } from "react";
 import { defaultSettings } from "../config/default";
-import { defaultTasks } from "../config/default";
 
 const SettingsContext = createContext();
 
