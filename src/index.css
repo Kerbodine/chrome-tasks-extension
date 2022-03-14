@@ -4,6 +4,6 @@
 
 @layer base {
   input {
-    @apply outline-none px-2 py-1;
+    @apply outline-none;
   }
 }

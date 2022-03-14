@@ -2,29 +2,25 @@ import React, { useState, useEffect } from "react";
 import TaskItem from "./TaskItem";
 import { nanoid } from "nanoid";
 import { BiPlus } from "react-icons/bi";
+import { useSettings } from "../contexts/SettingsContext";
+import FocusDetector from "./FocusDetector";
 
 const TaskList = () => {
-  const [tasks, setTasks] = useState(
-    JSON.parse(localStorage.getItem("tasks")) || [
-      {
-        id: nanoid(),
-        title: "Task 1",
-        completed: false,
-      },
-    ]
-  );
+  const { tasks, setTasks } = useSettings();
 
   const [inputText, setInputText] = useState("");
 
   const newTask = (e) => {
     e.preventDefault();
-    const newTask = {
-      id: nanoid(),
-      title: inputText,
-      completed: false,
-    };
-    setTasks([...tasks, newTask]);
-    setInputText("");
+    if (inputText) {
+      const newTask = {
+        id: nanoid(),
+        title: inputText,
+        completed: false,
+      };
+      setTasks([...tasks, newTask]);
+      setInputText("");
+    }
   };
 
   const toggleTask = (id) => {
@@ -59,7 +55,7 @@ const TaskList = () => {
   console.log(tasks);
 
   return (
-    <div className="max-w-sm w-full flex flex-col p-4 border-2 border-gray-200 rounded-lg gap-4">
+    <div className="max-w-sm w-full flex flex-col gap-4">
       {tasks && tasks.length > 0 && (
         <div className="max-h-[244px] h-full w-full flex flex-col gap-2 overflow-y-auto">
           {tasks.map((task, index) => (
@@ -73,18 +69,20 @@ const TaskList = () => {
       <form className="w-full flex gap-2">
         <input
           type="text"
-          className="flex-auto bg-gray-100 rounded-md text-gray-700"
+          className="flex-auto bg-gray-100 rounded-lg text-gray-700 px-3 py-2"
           value={inputText}
+          placeholder="Add a task"
           onChange={(e) => setInputText(e.target.value)}
         />
         <button
           type="submit"
-          className="h-full aspect-square grid place-items-center text-2xl bg-gray-100 rounded-md hover:bg-black hover:text-white transition-all"
+          className="h-full aspect-square grid place-items-center text-2xl bg-gray-100 rounded-lg hover:bg-black hover:text-white transition-all"
           onClick={newTask}
         >
           <BiPlus />
         </button>
       </form>
+      <FocusDetector />
     </div>
   );
 };
