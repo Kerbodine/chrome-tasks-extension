@@ -1,8 +1,8 @@
 import { nanoid } from "nanoid";
 
 export const defaultSettings = {
-  timeFormat: "12h",
-  dateFormat: "MM/DD/YYYY",
+  twelveHourClock: true,
+  showDate: true,
   showSeconds: false,
   darkMode: false,
 };

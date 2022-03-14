@@ -10,9 +10,7 @@ const FocusDetector = () => {
 
   useEffect(() => {
     window.addEventListener("focus", onFocus);
-    // Calls onFocus when the window first loads
     onFocus();
-    // Specify how to clean up after this effect:
     return () => {
       window.removeEventListener("focus", onFocus);
     };
