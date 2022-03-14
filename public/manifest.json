@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "FocalTimer",
+  "name": "FocalTasks",
   "version": "1.0.0",
-  "description": "Simple new tab widgets",
+  "description": "Dead simple new tab todo-list for Chrome.",
   "author": "Michael Tong",
   "icons": {
     "16": "icons/16.ico",
