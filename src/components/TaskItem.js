@@ -12,7 +12,7 @@ const TaskItem = ({
           completed
             ? "border-0 bg-black text-white dark:bg-white dark:text-black"
             : "border-2 border-gray-200 text-black dark:border-gray-700"
-        } w-7 h-7 rounded-md grid place-items-center text-2xl transition-colors`}
+        } w-7 h-7 rounded-md grid place-items-center text-2xl transition-colors flex-none`}
       >
         {completed && <BiCheck />}
       </button>
@@ -21,13 +21,13 @@ const TaskItem = ({
           completed
             ? "text-gray-500 line-through"
             : "text-gray-700 dark:text-gray-300"
-        } transition-colors flex-auto truncate ml-2 bg-transparent`}
+        } transition-colors w-full ml-3 text-lg bg-transparent`}
         value={title}
         onChange={(e) => updateTitle(id, e.target.value)}
       ></input>
       <button
         onClick={() => deleteTask(id)}
-        className="w-10 text-gray-400 dark:text-gray-500 text-2xl justify-center hidden group-hover:flex"
+        className="w-10 text-gray-400 dark:text-gray-500 text-2xl hidden group-hover:flex bg-white dark:bg-gray-900 justify-center flex-none"
       >
         <BiX />
       </button>

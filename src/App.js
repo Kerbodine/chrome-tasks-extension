@@ -8,10 +8,7 @@ import { useSettings } from "./contexts/SettingsContext";
 const App = () => {
   const { settings } = useSettings();
 
-  if (
-    settings.darkMode &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-  ) {
+  if (settings.darkMode) {
     document.documentElement.classList.add("dark");
   } else {
     document.documentElement.classList.remove("dark");
