@@ -38,7 +38,7 @@ const SettingsButton = () => {
     <>
       <button
         onClick={openSettings}
-        className="absolute right-4 top-[72px] text-2xl bg-gray-100 rounded-full p-2 transition-colors hover:bg-black hover:text-white text-black dark:bg-gray-800 dark:text-white dark:hover:bg-white dark:hover:text-black"
+        className="absolute right-4 top-[72px] text-2xl bg-gray-100 rounded-full p-2 hover:bg-black hover:text-white text-black dark:bg-gray-800 dark:text-white dark:hover:bg-white dark:hover:text-black"
       >
         <BiCog />
       </button>
@@ -98,7 +98,7 @@ const SettingsButton = () => {
                   />
                 </div>
                 <button
-                  className="absolute right-6 top-6 bg-gray-100 hover:bg-black hover:text-white rounded-full text-xl p-1 transition-colors"
+                  className="absolute right-6 top-6 bg-gray-100 hover:bg-black hover:text-white rounded-full text-xl p-1 transition-c"
                   onClick={closeSettings}
                 >
                   <BiX />

@@ -15,7 +15,7 @@ const SwitchItem = ({ label, condition, toggleCondition }) => {
         onChange={toggleCondition}
         className={`${
           condition ? "bg-black" : "bg-gray-200"
-        } "relative inline-flex items-center h-6 w-11 rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none"`}
+        } "relative inline-flex items-center h-6 w-11 rounded-full cursor-pointer ease-in-out duration-200 focus:outline-none"`}
       >
         <span
           aria-hidden="true"

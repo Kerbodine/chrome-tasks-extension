@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import TaskItem from "./TaskItem";
 import { nanoid } from "nanoid";
-import { BiPlus } from "react-icons/bi";
 import { useSettings } from "../contexts/SettingsContext";
 import FocusDetector from "./FocusDetector";
+import { HiPlusSm } from "react-icons/hi";
 
 const TaskList = () => {
   const { tasks, setTasks, settings } = useSettings();
@@ -49,10 +49,10 @@ const TaskList = () => {
   };
 
   return (
-    <div className="max-w-sm w-full flex flex-col gap-4">
+    <div className="max-w-sm w-full flex flex-col gap-2 p-2 border-2 border-gray-100 dark:border-gray-800 rounded-2xl transition-c">
       {tasks && tasks.length > 0 && (
-        <div
-          className={`max-h-[244px] h-full w-full flex flex-col gap-2 overflow-y-auto ${
+        <ul
+          className={`max-h-[244px] h-full w-full flex flex-col gap-2 overflow-y-auto p-2 ${
             settings.darkMode && "dark-scroll"
           }`}
         >
@@ -62,22 +62,21 @@ const TaskList = () => {
               data={{ ...task, toggleTask, updateTitle, deleteTask }}
             />
           ))}
-        </div>
+        </ul>
       )}
       <form className="w-full flex gap-2">
         <input
-          type="text"
-          className="flex-auto bg-gray-100 dark:bg-gray-800 rounded-lg text-gray-700 px-3 py-2 placeholder-gray-400 dark:placeholder-gray-500 dark:caret-gray-400 dark:text-gray-300 transition-colors"
+          className="flex-auto bg-gray-100 dark:bg-gray-800 rounded-lg text-gray-700 px-3 py-2 placeholder-gray-400 dark:placeholder-gray-500 dark:caret-gray-400 dark:text-gray-300 transition-c"
           value={inputText}
           placeholder="Add a task"
           onChange={(e) => setInputText(e.target.value)}
         />
         <button
           type="submit"
-          className="h-full aspect-square grid place-items-center text-2xl bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-black hover:text-white transition-all dark:text-white dark:hover:text-black dark:hover:bg-white"
+          className="h-full aspect-square grid place-items-center text-2xl bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-black hover:text-white dark:text-white dark:hover:text-black dark:hover:bg-white"
           onClick={newTask}
         >
-          <BiPlus />
+          <HiPlusSm />
         </button>
       </form>
       <FocusDetector />

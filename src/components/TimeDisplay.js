@@ -37,11 +37,11 @@ const TimeDisplay = () => {
 
   return (
     <div>
-      <h1 className="font-medium text-6xl dark:text-white transition-colors text-center">
+      <h1 className="font-medium text-6xl dark:text-white text-center">
         {time}
       </h1>
       {settings.showDate && (
-        <h2 className="text-2xl text-center dark:text-white transition-colors">
+        <h2 className="text-2xl text-center dark:text-white transition-c">
           {date}
         </h2>
       )}

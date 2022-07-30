@@ -34,11 +34,20 @@ export function SettingsProvider({ children }) {
     localStorage.setItem("settings", JSON.stringify(settings));
   }, [settings]);
 
+  const [dark, setDark] = useState(
+    document.documentElement.classList.contains("dark")
+  );
+
   const toggleTheme = () => {
-    setSettings({
-      ...settings,
-      darkMode: !settings.darkMode,
-    });
+    if (document.documentElement.classList.contains("dark")) {
+      localStorage.theme = "light";
+      document.documentElement.classList.remove("dark");
+      setDark(false);
+    } else {
+      localStorage.theme = "dark";
+      document.documentElement.classList.add("dark");
+      setDark(true);
+    }
   };
 
   const value = {
@@ -47,6 +56,7 @@ export function SettingsProvider({ children }) {
     toggleTheme,
     tasks,
     setTasks,
+    dark,
   };
 
   return (
