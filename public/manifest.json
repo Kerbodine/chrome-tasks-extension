@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "FocalTasks",
+  "name": "FocalTab",
   "version": "1.0.0",
-  "description": "Dead simple new tab todo-list for Chrome.",
+  "description": "Minimal & customizable newtab page",
   "author": "Michael Tong",
   "icons": {
     "16": "icons/16.ico",

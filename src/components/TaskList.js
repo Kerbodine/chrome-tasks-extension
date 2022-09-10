@@ -49,10 +49,25 @@ const TaskList = () => {
   };
 
   return (
-    <div className="max-w-sm w-full flex flex-col gap-2 p-2 border-2 border-gray-100 dark:border-gray-800 rounded-2xl transition-c">
+    <div className="max-w-[360px] w-full flex flex-col gap-2">
+      <form className="w-full flex gap-2">
+        <input
+          className="flex-auto text-[17px] bg-gray-100 dark:bg-gray-800 rounded-lg text-gray-700 px-3 py-2 placeholder-gray-400 dark:placeholder-gray-500 dark:caret-gray-400 dark:text-gray-300 transition-c"
+          value={inputText}
+          placeholder="Add a task"
+          onChange={(e) => setInputText(e.target.value)}
+        />
+        <button
+          type="submit"
+          className="h-full focus:outline-none aspect-square grid place-items-center text-2xl bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-black hover:text-white dark:text-white dark:hover:text-black dark:hover:bg-white"
+          onClick={newTask}
+        >
+          <HiPlusSm />
+        </button>
+      </form>
       {tasks && tasks.length > 0 && (
         <ul
-          className={`max-h-[244px] h-full w-full flex flex-col gap-2 overflow-y-auto p-2 ${
+          className={`max-h-[244px] h-full w-full flex flex-col gap-3 overflow-y-auto p-2 ${
             settings.darkMode && "dark-scroll"
           }`}
         >
@@ -64,21 +79,6 @@ const TaskList = () => {
           ))}
         </ul>
       )}
-      <form className="w-full flex gap-2">
-        <input
-          className="flex-auto bg-gray-100 dark:bg-gray-800 rounded-lg text-gray-700 px-3 py-2 placeholder-gray-400 dark:placeholder-gray-500 dark:caret-gray-400 dark:text-gray-300 transition-c"
-          value={inputText}
-          placeholder="Add a task"
-          onChange={(e) => setInputText(e.target.value)}
-        />
-        <button
-          type="submit"
-          className="h-full aspect-square grid place-items-center text-2xl bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-black hover:text-white dark:text-white dark:hover:text-black dark:hover:bg-white"
-          onClick={newTask}
-        >
-          <HiPlusSm />
-        </button>
-      </form>
       <FocusDetector />
     </div>
   );

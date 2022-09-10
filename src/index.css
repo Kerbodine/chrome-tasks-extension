@@ -1,10 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap'); */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Abril Fatface';
+  src: local('Abril Fatface'), url(./fonts//AbrilFatface-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Jetbrains';
+  src: local('Jetbrains'), url(./fonts//JetBrainsMono-VariableFont_wght.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Fredoka';
+  src: local('Fredoka'), url(./fonts//FredokaOne-Regular.ttf) format('truetype');
+}
 
 @layer base {
   body {
@@ -16,10 +31,40 @@
   }
 }
 
+.display .title {
+  font-family: 'Abril Fatface';
+  letter-spacing: 0rem;
+}
+
+.monospace .title {
+  font-family: 'Jetbrains';
+  letter-spacing: -0.25rem;
+}
+
+.rounded .title {
+  font-family: 'Fredoka';
+  letter-spacing: 0rem;
+}
+
 .title {
-  /* font-family: 'Monoton', cursive; */
-  /* font-family: 'Raleway Dots', cursive; */
-  font-family: 'Abril Fatface', cursive;
+  font-weight: 700;
+  letter-spacing: -0.125rem;
+}
+
+.subtitle {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+.serif {
+  font-family: 'Abril Fatface';
+}
+
+.mono {
+  font-family: 'Jetbrains';
+}
+
+.round {
+  font-family: 'Fredoka';
 }
 
 /* width */
@@ -46,4 +91,8 @@
 .dark [type='checkbox']:checked {
   background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='ffffff' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
   @apply text-white;
+}
+
+.focus-ring {
+  @apply focus:ring-[2px] ring-gray-200 dark:ring-gray-700;
 }

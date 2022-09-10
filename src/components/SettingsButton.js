@@ -1,8 +1,9 @@
 import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { BiX, BiCog } from "react-icons/bi";
+import { BiCog, BiX } from "react-icons/bi";
 import { useSettings } from "../contexts/SettingsContext";
 import SwitchItem from "./SwitchItem";
+import FontCard from "./FontCard";
 
 const SettingsButton = () => {
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -97,8 +98,14 @@ const SettingsButton = () => {
                     toggleCondition={toggleSeconds}
                   />
                 </div>
+                <div className="grid grid-cols-4 gap-2 mt-4">
+                  <FontCard selected={true} text="Aa" label="sans" />
+                  <FontCard text="Ss" label="serif" />
+                  <FontCard text="00" label="mono" />
+                  <FontCard text="Rr" label="round" />
+                </div>
                 <button
-                  className="absolute right-6 top-6 bg-gray-100 hover:bg-black hover:text-white rounded-full text-xl p-1 transition-c"
+                  className="absolute right-6 top-6 bg-gray-100 hover:bg-black hover:text-white rounded-full text-2xl text p-0.5 transition-c"
                   onClick={closeSettings}
                 >
                   <BiX />

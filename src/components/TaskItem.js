@@ -10,7 +10,7 @@ const TaskItem = ({
       <input
         type="checkbox"
         checked={completed}
-        className="h-6 w-6 flex-none cursor-pointer rounded-md border-2 border-gray-300 bg-transparent text-2xl text-black dark:text-white focus:outline-none focus:ring-0 focus:ring-offset-0 dark:border-gray-600 dark:checked:border-none"
+        className="h-7 w-7 flex-none cursor-pointer rounded-lg border-2 border-gray-200 bg-transparent text-2xl text-black dark:text-white focus:outline-none focus:ring-0 focus:ring-offset-0 dark:border-gray-700 dark:checked:border-none"
         onChange={() => toggleTask(id)}
       />
       <input
@@ -18,7 +18,7 @@ const TaskItem = ({
           completed
             ? "text-gray-500 line-through"
             : "text-gray-700 dark:text-gray-300"
-        } w-full ml-2 bg-transparent font-medium`}
+        } w-full ml-3 bg-transparent text-[17px]`}
         value={title}
         onChange={(e) => updateTitle(id, e.target.value)}
       ></input>

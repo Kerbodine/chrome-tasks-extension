@@ -4,10 +4,7 @@ import React from "react";
 const SwitchItem = ({ label, condition, toggleCondition }) => {
   return (
     <Switch.Group as="div" className="flex items-center w-full">
-      <Switch.Label
-        as="span"
-        className="flex-auto text-sm font-medium text-gray-900"
-      >
+      <Switch.Label as="span" className="flex-auto font-medium text-gray-600">
         {label}
       </Switch.Label>
       <Switch
