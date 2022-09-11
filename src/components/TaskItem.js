@@ -18,7 +18,7 @@ const TaskItem = ({
           completed
             ? "text-gray-500 line-through"
             : "text-gray-700 dark:text-gray-300"
-        } w-full ml-3 bg-transparent text-[17px]`}
+        } w-full ml-2 bg-transparent text-[17px]`}
         value={title}
         onChange={(e) => updateTitle(id, e.target.value)}
       ></input>

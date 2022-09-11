@@ -3,10 +3,10 @@ import TaskItem from "./TaskItem";
 import { nanoid } from "nanoid";
 import { useSettings } from "../contexts/SettingsContext";
 import FocusDetector from "./FocusDetector";
-import { HiPlusSm, HiReply } from "react-icons/hi";
+import { HiReply } from "react-icons/hi";
 
 const TaskList = () => {
-  const { tasks, setTasks, settings, dark } = useSettings();
+  const { tasks, setTasks, dark } = useSettings();
 
   const [inputText, setInputText] = useState("");
 
@@ -49,7 +49,7 @@ const TaskList = () => {
   };
 
   return (
-    <div className="max-w-xs w-full flex flex-col gap-2 rounded-lg overflow-hidden">
+    <div className="max-w-sm w-full flex flex-col gap-2 rounded-lg overflow-hidden">
       <form className="w-full flex">
         <input
           className="flex-auto text-[17px] bg-gray-100 dark:bg-gray-800 rounded-lg text-gray-700 px-3 py-2 placeholder-gray-400 dark:placeholder-gray-500 dark:caret-gray-400 dark:text-gray-300 transition-c"
