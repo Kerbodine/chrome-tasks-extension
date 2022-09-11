@@ -50,6 +50,15 @@ export function SettingsProvider({ children }) {
     }
   };
 
+  const [font, setFont] = useState(localStorage.font);
+
+  const changeFont = (newFont) => {
+    localStorage.setItem("font", newFont);
+    document.documentElement.classList.remove(font);
+    document.documentElement.classList.add(newFont);
+    setFont(newFont);
+  };
+
   const value = {
     settings,
     setSettings,
@@ -57,6 +66,8 @@ export function SettingsProvider({ children }) {
     tasks,
     setTasks,
     dark,
+    font,
+    changeFont,
   };
 
   return (

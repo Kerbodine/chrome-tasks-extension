@@ -18,14 +18,14 @@
 
     if (localStorage.font === "display") {
       document.documentElement.classList.add('display')
-    } else if (localStorage.font === "monospace") {
-      document.documentElement.classList.add('monospace')
-    } else if (localStorage.font === "rounded") {
-      document.documentElement.classList.add('rounded')
+    } else if (localStorage.font === "mono") {
+      document.documentElement.classList.add('mono')
+    } else if (localStorage.font === "serif") {
+      document.documentElement.classList.add('serif')
     } else {
       document.documentElement.classList.remove('display')
-      document.documentElement.classList.remove('monospace')
-      document.documentElement.classList.remove('rounded')
+      document.documentElement.classList.remove('mono')
+      document.documentElement.classList.remove('serif')
     }
   </script>
 </head>

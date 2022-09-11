@@ -5,9 +5,28 @@ import { useSettings } from "../contexts/SettingsContext";
 import SwitchItem from "./SwitchItem";
 import FontCard from "./FontCard";
 
+const fontOptions = [
+  {
+    label: "sans",
+    text: "12",
+  },
+  {
+    label: "mono",
+    text: "12",
+  },
+  {
+    label: "serif",
+    text: "12",
+  },
+  {
+    label: "display",
+    text: "12",
+  },
+];
+
 const SettingsButton = () => {
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const { settings, setSettings } = useSettings();
+  const { settings, setSettings, font, changeFont } = useSettings();
 
   const openSettings = () => {
     setSettingsOpen(true);
@@ -33,6 +52,10 @@ const SettingsButton = () => {
       ...settings,
       showSeconds: !settings.showSeconds,
     });
+  };
+
+  const switchFont = (font) => {
+    changeFont(font);
   };
 
   return (
@@ -99,10 +122,15 @@ const SettingsButton = () => {
                   />
                 </div>
                 <div className="grid grid-cols-4 gap-2 mt-4">
-                  <FontCard selected={true} text="Aa" label="sans" />
-                  <FontCard text="Ss" label="serif" />
-                  <FontCard text="00" label="mono" />
-                  <FontCard text="Rr" label="round" />
+                  {fontOptions.map((option) => (
+                    <FontCard
+                      key={option.label}
+                      label={option.label}
+                      text={option.text}
+                      active={font === option.label}
+                      switchFont={switchFont}
+                    />
+                  ))}
                 </div>
                 <button
                   className="absolute right-6 top-6 bg-gray-100 hover:bg-black hover:text-white rounded-full text-2xl text p-0.5 transition-c"

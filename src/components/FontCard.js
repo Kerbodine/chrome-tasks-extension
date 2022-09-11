@@ -1,22 +1,23 @@
 import React from "react";
 
-export default function FontCard({ selected, onClick, text, label }) {
+export default function FontCard({ switchFont, active, text, label }) {
   return (
-    <div
+    <button
+      onClick={() => switchFont(label)}
       className={`${
-        selected
+        active
           ? "bg-black text-white"
           : "bg-gray-100 hover:bg-gray-200 transition-colors"
-      } h-14 rounded-lg flex flex-col items-center justify-center cursor-pointer`}
+      } h-14 rounded-lg flex flex-col items-center justify-center`}
     >
-      <p className={`text-xl ${label}`}>{text}</p>
+      <p className={`text-2xl font-card ${label}`}>{text}</p>
       <p
         className={`${
-          selected ? "text-gray-300" : "text-gray-600"
+          active ? "text-gray-300" : "text-gray-600"
         } text-sm -mt-1 capitalize`}
       >
         {label}
       </p>
-    </div>
+    </button>
   );
 }

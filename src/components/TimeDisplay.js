@@ -37,12 +37,15 @@ const TimeDisplay = () => {
 
   return (
     <div>
-      <h1 className="title font-medium text-6xl dark:text-white text-center">
+      <h1
+        id="title"
+        className={`title ${
+          settings.twelveHourClock && settings.showSeconds && "small-title"
+        }`}
+      >
         {time}
       </h1>
-      {settings.showDate && (
-        <h2 className="subtitle text-2xl text-center">{date}</h2>
-      )}
+      {settings.showDate && <h2 className="subtitle">{date}</h2>}
     </div>
   );
 };

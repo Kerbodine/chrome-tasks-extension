@@ -1,24 +1,29 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap'); */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @font-face {
   font-family: 'Abril Fatface';
-  src: local('Abril Fatface'), url(./fonts//AbrilFatface-Regular.ttf) format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Abril Fatface'), url(./fonts//abril.woff2) format('woff2');
 }
 
 @font-face {
-  font-family: 'Jetbrains';
-  src: local('Jetbrains'), url(./fonts//JetBrainsMono-VariableFont_wght.ttf) format('truetype');
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Noto Serif Bold'), url(./fonts//noto-serif.woff2) format('woff2');
 }
 
 @font-face {
-  font-family: 'Fredoka';
-  src: local('Fredoka'), url(./fonts//FredokaOne-Regular.ttf) format('truetype');
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Oswald'), url(./fonts//oswald.woff2) format('woff2');
 }
 
 @layer base {
@@ -31,40 +36,52 @@
   }
 }
 
-.display .title {
-  font-family: 'Abril Fatface';
-  letter-spacing: 0rem;
-}
-
-.monospace .title {
-  font-family: 'Jetbrains';
-  letter-spacing: -0.25rem;
-}
-
-.rounded .title {
-  font-family: 'Fredoka';
-  letter-spacing: 0rem;
-}
-
 .title {
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.125rem;
+  font-size: 68px;
+  line-height: 64px;
+  @apply font-medium dark:text-white text-center;
+}
+
+.title.small-title {
+  font-size: 56px;
+  line-height: 56px;
 }
 
 .subtitle {
-  @apply text-gray-600 dark:text-gray-400;
+  @apply text-gray-600 dark:text-gray-400 text-2xl font-medium text-center;
 }
 
-.serif {
+/* title with fonts */
+
+.serif #title {
+  font-family: 'Noto Serif', serif;
+  letter-spacing: 0rem;
+}
+
+.mono #title {
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0rem;
+}
+
+.display #title {
   font-family: 'Abril Fatface';
+  letter-spacing: 0.125rem;
 }
 
-.mono {
-  font-family: 'Jetbrains';
+/* font cards preview */
+
+.serif.font-card {
+  font-family: 'Noto Serif', serif;
 }
 
-.round {
-  font-family: 'Fredoka';
+.mono.font-card {
+  font-family: 'Oswald', sans-serif;
+}
+
+.display.font-card {
+  font-family: 'Abril Fatface';
 }
 
 /* width */
@@ -93,6 +110,10 @@
   @apply text-white;
 }
 
-.focus-ring {
-  @apply focus:ring-[2px] ring-gray-200 dark:ring-gray-700;
+.flip-180 {
+  -moz-transform: scale(1, -1);
+  -webkit-transform: scale(1, -1);
+  -o-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1);
 }
