@@ -6,7 +6,7 @@ export default function FontCard({ switchFont, active, text, label }) {
       onClick={() => switchFont(label)}
       className={`${
         active
-          ? "bg-black text-white"
+          ? "bg-bg text-white"
           : "bg-gray-100 hover:bg-gray-200 transition-colors"
       } h-14 rounded-lg flex flex-col items-center justify-center`}
     >

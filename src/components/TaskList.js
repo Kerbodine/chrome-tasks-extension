@@ -49,10 +49,10 @@ const TaskList = () => {
   };
 
   return (
-    <div className="max-w-sm w-full flex flex-col gap-2 rounded-lg overflow-hidden">
+    <div className="max-w-sm w-full flex flex-col gap-2 rounded-lg">
       <form className="w-full flex">
         <input
-          className="flex-auto text-[17px] bg-gray-100 dark:bg-gray-800 rounded-lg text-gray-700 px-3 py-2 placeholder-gray-400 dark:placeholder-gray-500 dark:caret-gray-400 dark:text-gray-300 transition-c"
+          className="flex-auto text-[17px] bg-gray-100 dark:bg-primary rounded-lg text-gray-700 px-3 py-2 placeholder-gray-400 dark:placeholder-font/50 dark:caret-font dark:text-font transition-c"
           value={inputText}
           placeholder="Add a task"
           onChange={(e) => setInputText(e.target.value)}
@@ -61,7 +61,7 @@ const TaskList = () => {
           type="submit"
           className={`${
             inputText === "" ? "w-0" : "w-10 ml-2"
-          } transition-all overflow-hidden h-full focus:outline-none aspect-square grid place-items-center text-xl bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-black hover:text-white dark:text-white dark:hover:text-black dark:hover:bg-white`}
+          } transition-all overflow-hidden h-full focus:outline-none aspect-square grid place-items-center text-xl bg-gray-100 dark:bg-primary rounded-lg hover:bg-black hover:text-white dark:text-font dark:hover:text-black dark:hover:bg-white`}
           onClick={newTask}
         >
           <span className="flip-180">

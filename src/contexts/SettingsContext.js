@@ -59,6 +59,25 @@ export function SettingsProvider({ children }) {
     setFont(newFont);
   };
 
+  const [themeColor, setThemeColor] = useState(
+    localStorage.themeColor ? JSON.parse(localStorage.themeColor) : false
+  );
+
+  const updateColor = () => {
+    document.documentElement.style.setProperty("--color-h", themeColor.h);
+    document.documentElement.style.setProperty("--color-s", themeColor.s + "%");
+    document.documentElement.style.setProperty("--color-l", themeColor.l + "%");
+  };
+
+  updateColor();
+
+  const changeThemeColor = (color) => {
+    localStorage.setItem("themeColor", JSON.stringify(color));
+    // change root css variables
+    setThemeColor(color);
+    updateColor();
+  };
+
   const value = {
     settings,
     setSettings,
@@ -68,6 +87,8 @@ export function SettingsProvider({ children }) {
     dark,
     font,
     changeFont,
+    themeColor,
+    changeThemeColor,
   };
 
   return (

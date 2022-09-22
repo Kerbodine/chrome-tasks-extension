@@ -4,6 +4,7 @@ import { BiCog, BiX } from "react-icons/bi";
 import { useSettings } from "../contexts/SettingsContext";
 import SwitchItem from "./SwitchItem";
 import FontCard from "./FontCard";
+import ThemePicker from "./ThemePicker";
 
 const fontOptions = [
   {
@@ -21,6 +22,29 @@ const fontOptions = [
   {
     label: "display",
     text: "12",
+  },
+];
+
+const themeOptions = [
+  {
+    h: 230,
+    s: 26,
+    l: 34,
+  },
+  {
+    h: 254,
+    s: 25,
+    l: 27,
+  },
+  {
+    h: 200.95,
+    s: 90,
+    l: 27,
+  },
+  {
+    h: 203,
+    s: 30,
+    l: 26,
   },
 ];
 
@@ -62,7 +86,7 @@ const SettingsButton = () => {
     <>
       <button
         onClick={openSettings}
-        className="absolute right-4 top-[72px] text-2xl bg-gray-100 rounded-full p-2 hover:bg-black hover:text-white text-black dark:bg-gray-800 dark:text-white dark:hover:bg-white dark:hover:text-black"
+        className="absolute right-4 top-[72px] text-2xl bg-gray-100 rounded-full p-2 hover:bg-black hover:text-white text-black dark:bg-primary dark:text-white dark:hover:bg-white dark:hover:text-black"
       >
         <BiCog />
       </button>
@@ -132,8 +156,13 @@ const SettingsButton = () => {
                     />
                   ))}
                 </div>
+                <div className="flex gap-2 mt-4">
+                  {themeOptions.map((option) => (
+                    <ThemePicker key={option.h} color={option} />
+                  ))}
+                </div>
                 <button
-                  className="absolute right-6 top-6 bg-gray-100 hover:bg-black hover:text-white rounded-full text-2xl text p-0.5 transition-c"
+                  className="absolute right-6 top-6 bg-gray-100 hover:bg-bg hover:text-white rounded-full text-2xl text p-0.5 transition-c"
                   onClick={closeSettings}
                 >
                   <BiX />

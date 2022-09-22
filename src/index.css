@@ -2,6 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
+/* css variables */
+:root {
+  /* --color-h: 202.04;
+  --color-s: 80%;
+  --color-l: 24%; */
+
+  /* Coffee */
+  /* --color-h: 25; */
+  /* --color-s: 9%; */
+  /* --color-l: 25%; */
+
+  --hex: #3A3335;
+
+  /* hex to hsl */
+  /* --color-h: 110; */
+  /* --color-s: 32%; */
+  /* --color-l: 28%; */
+
+  /* Purple */
+  --color-h: 230;
+  --color-s: 26%;
+  --color-l: 34%;
+
+  /* --color-h: 240;
+  --color-s: 42%;
+  --color-l: 15%; */
+
+  /* Dark */
+  /* --color-h: 0;
+  --color-s: 0%;
+  --color-l: 10%; */
+
+  --bg: #171717; /* 900 */
+  --primary: #27272a; /* 800 */
+  --accent: #171717; /* same as bg */
+
+  /* hsla(236.47,18%,19%,1) */
+  /* --color-h: 236.47;
+  --color-s: 18%;
+  --color-l: 19%; */
+
+  /* Test colors */
+  --bg: var(--color-h), var(--color-s), var(--color-l); /* 900 */
+  --primary: var(--color-h), calc(var(--color-s) - 2%), calc(var(--color-l) + 5%); /* 800 */
+  --accent: var(--color-h), var(--color-s), var(--color-l); /* same as bg */
+  --text: 255, 255, 255;
+}
+
 @font-face {
   font-family: 'Abril Fatface';
   font-style: normal;
@@ -28,7 +76,8 @@
 
 @layer base {
   body {
-    @apply bg-white dark:bg-gray-900 text-base;
+    /* @apply bg-white dark:bg-gray-900 text-base; */
+    @apply bg-white dark:bg-bg text-base;
   }
 
   input {
@@ -50,7 +99,7 @@
 }
 
 .subtitle {
-  @apply text-gray-600 dark:text-gray-400 text-2xl font-medium text-center;
+  @apply text-gray-600 dark:text-font/50 text-2xl font-medium text-center;
 }
 
 /* title with fonts */
@@ -94,20 +143,21 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-200 rounded-full hover:bg-gray-300;
+  @apply bg-gray-200 rounded-full;
 }
 
 .dark-scroll::-webkit-scrollbar-track {
-  @apply bg-gray-800 rounded-full;
+  /* @apply bg-gray-800 rounded-full; */
+  @apply bg-transparent;
 }
 
 .dark-scroll::-webkit-scrollbar-thumb {
-  @apply bg-gray-700 rounded-full hover:bg-gray-600;
+  @apply bg-primary rounded-full;
 }
 
 .dark [type='checkbox']:checked {
-  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='ffffff' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
-  @apply text-white;
+  background-image: url('data:image/svg+xml,<svg viewBox="0 0 16 16" fill="rgb(255,0,0)" xmlns="http://www.w3.org/2000/svg"><path d="M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z"/></svg>');
+  @apply text-white !stroke-blue-400;
 }
 
 .flip-180 {
@@ -116,4 +166,9 @@
   -o-transform: scale(1, -1);
   -ms-transform: scale(1, -1);
   transform: scale(1, -1);
+}
+
+.task-input {
+  /* @apply flex-auto text-[17px] bg-gray-100 dark:bg-gray-800 rounded-lg text-gray-700 px-3 py-2 placeholder-gray-400 dark:placeholder-gray-500 dark:caret-gray-400 dark:text-gray-300; */
+  @apply flex-auto text-[17px] bg-gray-100 dark:bg-primary rounded-lg text-gray-700 px-3 py-2 placeholder-gray-400 dark:placeholder-font dark:caret-white dark:text-white;
 }

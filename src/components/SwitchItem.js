@@ -11,7 +11,7 @@ const SwitchItem = ({ label, condition, toggleCondition }) => {
         checked={condition}
         onChange={toggleCondition}
         className={`${
-          condition ? "bg-black" : "bg-gray-200"
+          condition ? "bg-bg" : "bg-gray-200"
         } "relative inline-flex items-center h-6 w-11 rounded-full cursor-pointer ease-in-out duration-200 focus:outline-none"`}
       >
         <span
