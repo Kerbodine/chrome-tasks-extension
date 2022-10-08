@@ -6,7 +6,7 @@ import FocusDetector from "./FocusDetector";
 import { HiReply } from "react-icons/hi";
 
 const TaskList = () => {
-  const { tasks, setTasks, dark } = useSettings();
+  const { tasks, setTasks } = useSettings();
 
   const [inputText, setInputText] = useState("");
 
@@ -69,9 +69,7 @@ const TaskList = () => {
       </form>
       {tasks && tasks.length > 0 && (
         <ul
-          className={`max-h-[244px] h-full w-full flex flex-col gap-3 overflow-y-auto p-2 ${
-            dark && "dark-scroll"
-          }`}
+          className={`max-h-[324px] h-full w-full flex flex-col gap-3 overflow-y-auto p-2 task-scroll`}
         >
           {tasks.map((task, index) => (
             <TaskItem

@@ -7,12 +7,6 @@ const TaskItem = ({
 }) => {
   return (
     <li className="w-full flex items-center group relative">
-      {/* <input
-        type="checkbox"
-        checked={completed}
-        className="h-7 w-7 flex-none cursor-pointer rounded-lg border-2 border-gray-200 bg-transparent text-2xl text-black dark:text-font focus:outline-none focus:ring-0 focus:ring-offset-0 dark:border-font/20 dark:checked:border-none"
-        onChange={() => toggleTask(id)}
-      /> */}
       <button
         onClick={() => toggleTask(id)}
         className={`checkbox ${

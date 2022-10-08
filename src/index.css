@@ -4,12 +4,6 @@
 
 /* css variables */
 :root {
-  --hex: #3A3335;
-
-  --color-h: 240.6;
-  --color-s: 6%;
-  --color-l: 10%;
-
   /* Test colors */
   --bg: hsl(var(--color-h), var(--color-s), var(--color-l));
   --primary: hsl(var(--color-h), calc(var(--color-s) - 2%), calc(var(--color-l) + 6%)); /* 800 */
@@ -42,7 +36,6 @@
 
 @layer base {
   body {
-    /* @apply bg-white dark:bg-gray-900 text-base; */
     @apply text-base;
   }
 
@@ -138,18 +131,13 @@ body {
   @apply bg-gray-200 rounded-full;
 }
 
-.dark-scroll::-webkit-scrollbar-track {
-  /* @apply bg-gray-800 rounded-full; */
+.task-scroll::-webkit-scrollbar-track {
   @apply bg-transparent;
 }
 
-.dark-scroll::-webkit-scrollbar-thumb {
-  /* @apply bg-primary rounded-full; */
-}
-
-.dark [type='checkbox']:checked {
-  background-image: url('data:image/svg+xml,<svg viewBox="0 0 16 16" fill="rgb(255,0,0)" xmlns="http://www.w3.org/2000/svg"><path d="M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z"/></svg>');
-  @apply text-white !stroke-blue-400;
+.task-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  @apply rounded-full;
 }
 
 .flip-180 {
@@ -183,7 +171,7 @@ body {
 }
 
 .checkbox {
-  @apply h-7 w-7 flex items-center justify-center flex-none cursor-pointer rounded-lg border-2 text-lg focus:outline-none;
+  @apply h-7 w-7 flex items-center justify-center flex-none cursor-pointer rounded-lg border-2 text-base focus:outline-none;
 }
 
 .checkbox-empty {
@@ -201,7 +189,7 @@ body {
 .settings-button {
   background-color: var(--primary);
   color: var(--text);
-  @apply absolute right-4 top-[16px] text-2xl rounded-full p-2 dark:hover:bg-white dark:hover:text-black;
+  @apply absolute right-4 top-[16px] text-2xl rounded-full p-2;
 }
 /* hover */
 .settings-button:hover {
@@ -212,4 +200,23 @@ body {
 .active {
   background-color: rgb(0,0,0);
   color: rgb(255,255,255);
+}
+
+.picker .react-colorful {
+  @apply w-auto rounded-lg;
+}
+
+.picker .react-colorful__hue {
+  @apply rounded-lg mt-2 h-4;
+}
+
+.picker .react-colorful__hue-pointer,
+.picker .react-colorful__alpha-pointer,
+.picker .react-colorful__saturation-pointer  {
+  width: 20px;
+  height: 20px;
+}
+
+.picker .react-colorful__saturation {
+  @apply rounded-lg;
 }

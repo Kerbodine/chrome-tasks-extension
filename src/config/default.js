@@ -6,6 +6,39 @@ export const defaultSettings = {
   showSeconds: false,
 };
 
+export const defaultThemes = [
+  {
+    h: 0,
+    s: 0,
+    l: 100,
+  }, // light mode
+  {
+    h: 240,
+    s: 6,
+    l: 10,
+  }, // dark mode
+  {
+    h: 230,
+    s: 26,
+    l: 34,
+  },
+  {
+    h: 254,
+    s: 25,
+    l: 27,
+  },
+  {
+    h: 200.95,
+    s: 90,
+    l: 27,
+  },
+  {
+    h: 203,
+    s: 30,
+    l: 26,
+  },
+];
+
 export const defaultTasks = [
   {
     id: nanoid(),

@@ -1,10 +1,11 @@
 import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { BiCog, BiX } from "react-icons/bi";
+import { BiCog, BiPlus, BiX } from "react-icons/bi";
 import { useSettings } from "../contexts/SettingsContext";
 import SwitchItem from "./SwitchItem";
 import FontCard from "./FontCard";
 import ThemePicker from "./ThemePicker";
+import { HslColorPicker } from "react-colorful";
 
 const fontOptions = [
   {
@@ -25,43 +26,21 @@ const fontOptions = [
   },
 ];
 
-const themeOptions = [
-  {
-    h: 0,
-    s: 0,
-    l: 100,
-    primary: "hsl(0, 0%, 96%)",
-  }, // light mode
-  {
-    h: 240,
-    s: 6,
-    l: 10,
-  }, // dark mode
-  {
-    h: 230,
-    s: 26,
-    l: 34,
-  },
-  {
-    h: 254,
-    s: 25,
-    l: 27,
-  },
-  {
-    h: 200.95,
-    s: 90,
-    l: 27,
-  },
-  {
-    h: 203,
-    s: 30,
-    l: 26,
-  },
-];
-
 const SettingsButton = () => {
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const { settings, setSettings, font, changeFont } = useSettings();
+  const [showPicker, setShowPicker] = useState(false);
+  const {
+    settings,
+    setSettings,
+    font,
+    changeFont,
+    themeColor,
+    changeThemeColor,
+    colors,
+    addColor,
+  } = useSettings();
+
+  const [customColor, setCustomColor] = useState(themeColor);
 
   const openSettings = () => {
     setSettingsOpen(true);
@@ -91,6 +70,12 @@ const SettingsButton = () => {
 
   const switchFont = (font) => {
     changeFont(font);
+  };
+
+  const addThemeColor = () => {
+    changeThemeColor(customColor);
+    addColor(customColor);
+    setShowPicker(false);
   };
 
   return (
@@ -164,13 +149,33 @@ const SettingsButton = () => {
                     />
                   ))}
                 </div>
-                <div className="flex gap-2 mt-4">
-                  {themeOptions.map((option) => (
-                    <ThemePicker key={option.h} color={option} />
+                <div className="flex gap-2 mt-4 flex-wrap">
+                  {colors.map((option, index) => (
+                    <ThemePicker key={index} color={option} />
                   ))}
+                  <button
+                    onClick={() => setShowPicker(!showPicker)}
+                    className="w-8 h-8 rounded-lg text-black/25 text-2xl flex items-center justify-center focus:outline-none border-2 border-black/25 border-dashed hover:border-solid"
+                  >
+                    <BiPlus />
+                  </button>
                 </div>
+                {showPicker && (
+                  <div className="picker mt-4 p-3 bg-gray-100 rounded-lg">
+                    <HslColorPicker
+                      color={customColor}
+                      onChange={setCustomColor}
+                    />
+                    <button
+                      onClick={addThemeColor}
+                      className="px-2 py-1 mt-4 font-medium rounded-lg border-2 border-black hover:bg-black hover:text-white"
+                    >
+                      Add Color
+                    </button>
+                  </div>
+                )}
                 <button
-                  className="absolute right-6 top-6 bg-gray-100 hover:bg-bg hover:text-white rounded-full text-2xl text p-0.5 transition-c"
+                  className="absolute right-6 top-6 bg-gray-100 hover:bg-black hover:text-white rounded-full text-2xl text p-0.5 transition-c"
                   onClick={closeSettings}
                 >
                   <BiX />
