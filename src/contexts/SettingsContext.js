@@ -71,15 +71,26 @@ export function SettingsProvider({ children }) {
       `hsl(${themeColor.h}, ${themeColor.s}%, ${themeColor.l}%)`
     );
     // determine optimal text color (black or white) based on hsl values
-    document.documentElement.style.setProperty(
-      "--text",
-      themeColor.l > 50 ? "#000" : "#fff"
-    );
+    if (themeColor.text) {
+      document.documentElement.style.setProperty("--text", themeColor.text);
+    } else {
+      let luma = (themeColor.l / 100 + 0.5) % 1;
+      document.documentElement.style.setProperty(
+        "--text",
+        "hsl(" +
+          themeColor.h +
+          "," +
+          themeColor.s / 2 +
+          "%," +
+          luma * 100 +
+          "%)"
+      );
+    }
     // document.documentElement.style.setProperty("--text", themeColor.text);
     let primaryLum = themeColor.l > 50 ? themeColor.l - 4 : themeColor.l + 5;
     document.documentElement.style.setProperty(
       "--primary",
-      `hsl(${themeColor.h}, ${themeColor.s - 3}%, ${primaryLum}%)`
+      `hsl(${themeColor.h}, ${themeColor.s - 2}%, ${primaryLum}%)`
     );
   };
 
