@@ -27,6 +27,17 @@ const fontOptions = [
 
 const themeOptions = [
   {
+    h: 0,
+    s: 0,
+    l: 100,
+    primary: "hsl(0, 0%, 96%)",
+  }, // light mode
+  {
+    h: 240,
+    s: 6,
+    l: 10,
+  }, // dark mode
+  {
     h: 230,
     s: 26,
     l: 34,
@@ -84,10 +95,7 @@ const SettingsButton = () => {
 
   return (
     <>
-      <button
-        onClick={openSettings}
-        className="absolute right-4 top-[72px] text-2xl bg-gray-100 rounded-full p-2 hover:bg-black hover:text-white text-black dark:bg-primary dark:text-white dark:hover:bg-white dark:hover:text-black"
-      >
+      <button onClick={openSettings} className="settings-button">
         <BiCog />
       </button>
       <Transition appear show={settingsOpen} as={Fragment}>

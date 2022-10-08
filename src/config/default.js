@@ -4,7 +4,6 @@ export const defaultSettings = {
   twelveHourClock: true,
   showDate: true,
   showSeconds: false,
-  darkMode: false,
 };
 
 export const defaultTasks = [

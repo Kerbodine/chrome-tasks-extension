@@ -7,15 +7,6 @@ module.exports = {
     extend: {
       colors: {
         gray: colors.zinc,
-        bg: "hsl(var(--bg))",
-        font: ({ opacityValue }) => {
-          if (opacityValue !== undefined) {
-            return `rgba(var(--text), ${opacityValue})`;
-          }
-          return `rgb(var(--text)`;
-        },
-        primary: "hsl(var(--primary))",
-        accent: "var(--accent)",
       },
     },
   },
