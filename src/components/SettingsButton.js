@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { BiCog, BiPlus, BiX } from "react-icons/bi";
+import { BiCog, BiMinus, BiPlus, BiX } from "react-icons/bi";
 import { useSettings } from "../contexts/SettingsContext";
 import SwitchItem from "./SwitchItem";
 import FontCard from "./FontCard";
@@ -80,7 +80,10 @@ const SettingsButton = () => {
 
   return (
     <>
-      <button onClick={openSettings} className="settings-button">
+      <button
+        onClick={openSettings}
+        className="settings-button transition-colors"
+      >
         <BiCog />
       </button>
       <Transition appear show={settingsOpen} as={Fragment}>
@@ -149,33 +152,53 @@ const SettingsButton = () => {
                     />
                   ))}
                 </div>
-                <div className="flex gap-2 mt-4 flex-wrap">
-                  {colors.map((option, index) => (
-                    <ThemePicker key={index} color={option} />
-                  ))}
+                <div className="flex gap-2 mt-6">
+                  <p className="font-medium text-xl">Theme</p>
                   <button
-                    onClick={() => setShowPicker(!showPicker)}
-                    className="w-8 h-8 rounded-lg text-black/25 text-2xl flex items-center justify-center focus:outline-none border-2 border-black/25 border-dashed hover:border-solid"
+                    onClick={() => {
+                      setShowPicker(!showPicker);
+                    }}
+                    className={`ml-auto flex items-center px-2 py-0.5 font-medium rounded-lg bg-gray-100 hover:text-white hover:bg-black transition-colors text-gray-600 ${
+                      showPicker && "bg-black text-white"
+                    }`}
                   >
-                    <BiPlus />
+                    <span className="-ml-1 text-xl">
+                      <BiPlus />
+                    </span>{" "}
+                    Add
                   </button>
                 </div>
+                {!showPicker && (
+                  <div className="flex gap-2 mt-4 flex-wrap max-h-[152px] overflow-y-scroll no-scroll">
+                    {colors.map((option, index) => (
+                      <ThemePicker key={index} color={option} />
+                    ))}
+                  </div>
+                )}
                 {showPicker && (
                   <div className="picker mt-4 p-3 bg-gray-100 rounded-lg">
                     <HslColorPicker
                       color={customColor}
                       onChange={setCustomColor}
                     />
-                    <button
-                      onClick={addThemeColor}
-                      className="px-2 py-1 mt-4 font-medium rounded-lg border-2 border-black hover:bg-black hover:text-white"
-                    >
-                      Add Color
-                    </button>
+                    <div className="mt-4 flex items-center">
+                      <button
+                        onClick={addThemeColor}
+                        className="px-2 py-1 font-medium rounded-lg border-2 border-black hover:bg-black hover:text-white"
+                      >
+                        Add Color
+                      </button>
+                      <button
+                        onClick={() => setShowPicker(false)}
+                        className="ml-auto font-medium text-gray-600 mx-2 hover:underline"
+                      >
+                        Cancel
+                      </button>
+                    </div>
                   </div>
                 )}
                 <button
-                  className="absolute right-6 top-6 bg-gray-100 hover:bg-black hover:text-white rounded-full text-2xl text p-0.5 transition-c"
+                  className="absolute right-6 top-6 bg-gray-100 hover:bg-black hover:text-white rounded-full text-2xl text p-0.5 transition-colors"
                   onClick={closeSettings}
                 >
                   <BiX />

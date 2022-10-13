@@ -52,14 +52,16 @@ const TaskList = () => {
     <div className="max-w-sm w-full flex flex-col gap-2 rounded-lg">
       <form className="w-full flex">
         <input
-          className="task-input"
+          className="task-input transition-colors"
           value={inputText}
           placeholder="Add a task"
           onChange={(e) => setInputText(e.target.value)}
         />
         <button
           type="submit"
-          className={`${inputText === "" ? "w-0" : "w-10 ml-2"} task-submit`}
+          className={`${
+            inputText === "" ? "w-0" : "w-10 ml-2"
+          } task-submit transition-colors`}
           onClick={newTask}
         >
           <span className="flip-180">

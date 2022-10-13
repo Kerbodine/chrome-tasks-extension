@@ -9,7 +9,7 @@ const TaskItem = ({
     <li className="w-full flex items-center group relative">
       <button
         onClick={() => toggleTask(id)}
-        className={`checkbox ${
+        className={`checkbox transition-colors ${
           completed ? "checkbox-checked" : "checkbox-empty"
         }`}
       >
@@ -18,13 +18,13 @@ const TaskItem = ({
       <input
         className={`${
           completed ? "font-50 line-through" : "font-75"
-        } w-full ml-2 bg-transparent text-[17px]`}
+        } w-full ml-2 bg-transparent text-[17px] transition-colors`}
         value={title}
         onChange={(e) => updateTitle(id, e.target.value)}
       ></input>
       <button
         onClick={() => deleteTask(id)}
-        className="w-6 font-25 text-xl hidden group-hover:flex bg-bg justify-center flex-none"
+        className="w-6 font-25 text-xl hidden group-hover:flex bg-bg justify-center flex-none transition-colors"
       >
         <HiX />
       </button>

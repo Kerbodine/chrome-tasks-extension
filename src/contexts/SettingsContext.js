@@ -52,6 +52,13 @@ export function SettingsProvider({ children }) {
     setColors([...colors, color]);
   };
 
+  const deleteColor = (color) => {
+    setColors(colors.filter((c) => c !== color));
+    setThemeColor(colors[0]);
+    localStorage.setItem("themeColor", JSON.stringify(colors[0]));
+    updateColor();
+  };
+
   const [font, setFont] = useState(localStorage.font);
 
   const changeFont = (newFont) => {
@@ -117,6 +124,7 @@ export function SettingsProvider({ children }) {
     colors,
     setColors,
     addColor,
+    deleteColor,
   };
 
   return (

@@ -40,12 +40,16 @@ const TimeDisplay = () => {
       <h1
         id="title"
         className={`title ${
-          settings.twelveHourClock && settings.showSeconds && "small-title"
+          settings.twelveHourClock &&
+          settings.showSeconds &&
+          "small-title transition-colors"
         }`}
       >
         {time}
       </h1>
-      {settings.showDate && <h2 className="subtitle">{date}</h2>}
+      {settings.showDate && (
+        <h2 className="subtitle transition-colors">{date}</h2>
+      )}
     </div>
   );
 };

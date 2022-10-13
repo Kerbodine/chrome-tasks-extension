@@ -36,7 +36,7 @@
 
 @layer base {
   body {
-    @apply text-base;
+    @apply text-base transition-colors;
   }
 
   input {
@@ -219,4 +219,8 @@ body {
 
 .picker .react-colorful__saturation {
   @apply rounded-lg;
+}
+
+.no-scroll::-webkit-scrollbar {
+  display: none;
 }

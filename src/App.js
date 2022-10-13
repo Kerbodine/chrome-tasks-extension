@@ -5,7 +5,7 @@ import TimeDisplay from "./components/TimeDisplay";
 
 const App = () => {
   return (
-    <div className="relative w-full h-screen flex flex-col items-center justify-center gap-6 text-base transition-c">
+    <div className="relative w-full h-screen flex flex-col items-center justify-center gap-6 text-base">
       <TimeDisplay />
       <TaskList />
       <SettingsButton />
